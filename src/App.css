@@ -1,38 +1,357 @@
-.App {
+:root {
+  --main-clr: #273453;
+}
+
+/* Preloader */
+.preloader {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+
+/* Header */
+header {
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  background-color: var(--main-clr);
+  color: #eee;
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Card List */
+.card-list {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem 4rem;
+}
+
+.page-navigator input {
+  width: 50px;
+}
+
+.card-list .card {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  max-width: 720px;
+  width: 100%;
+  padding: 1rem;
+  background-color: #f7f7f7;
+  color: black;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.24);
+}
+
+.card-list .card:hover {
+  background-color: #f0f0f0;
+}
+
+.card-list figure {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.card-list .card-art {
+  width: 160px;
+  height: 120px;
+}
+
+.card-list .rarity {
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-list .card .name {
+  font-weight: bold;
+}
+
+.card-list .card .icon {
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+  transition: right 0.5s;
+}
+
+@media (width <= 353px) {
+  .card-list .card .icon {
+    display: none;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-list .card:hover .icon {
+  right: 20px;
+}
+
+.card-list .card svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Card Detail */
+.card-detail {
+  padding-bottom: 4rem;
+}
+
+.card-detail .art {
+  text-align: center;
+}
+
+.card-detail .art figure {
+  margin-top: 1rem;
+}
+
+.card-detail .art img {
+  width: 535px;
+}
+
+.card-detail .art .btn-wrapper {
+  margin-top: 1rem;
+}
+
+.card-detail .art button {
+  padding: 10px;
+  font-weight: bold;
+  background: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.card-detail .art button.active {
+  border-bottom: 2px solid grey;
+}
+
+.card-detail .info {
+  padding: 0 5%;
+}
+
+.card-detail .stat-selector {
+  display: grid;
+  margin-top: 1rem;
+}
+
+.card-detail .stat-selector button {
+  font-weight: bold;
+  background-color: transparent;
+  padding: 0.5rem 0;
+  border: none;
+  cursor: pointer;
+}
+
+.card-detail .stat-selector button.active {
+  background-color: #6495ed;
+  color: #f0f0f0;
+}
+
+.card-detail .stat {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.card-detail .stat > div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-detail .stat .text {
+  font-weight: bold;
+}
+
+.card-detail .stat .data {
+  width: 700px;
+  height: 1.5rem;
+  background-color: #fff;
+  border: 1px solid grey;
+}
+
+.card-detail .stat .progress {
+  background-color: #6495ed;
+  height: 100%;
+  transition: width 0.5s;
+}
+
+@media (width <= 990px) {
+  .card-detail .stat > div {
+    display: block;
+  }
+
+  .card-detail .stat .text {
+    margin-bottom: 4px;
+  }
+
+  .card-detail .stat .data {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.card-detail .stat .value {
+  color: #f0f0f0;
+  text-align: center;
+}
+
+/* Characters List */
+.character-list {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem 4rem;
+}
+
+.band-logo {
+  text-align: center;
+}
+
+.band-logo img {
+  width: 200px;
+}
+
+.members {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+@media (width <= 600px) {
+  .members {
+    grid-template-columns: 1fr;
+  }
+}
+
+.character-list .member:hover img {
+  transform: translateY(-1rem);
+  opacity: 0.85;
+}
+
+.character-list .member img {
+  width: 200px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.member-name {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Characters Detail */
+.character-detail {
+  padding-bottom: 4rem;
+}
+
+.character-detail .character-img {
+  text-align: center;
+}
+
+.character-detail .character-img img {
+  width: 200px;
+}
+
+.character-detail .info {
+  padding: 0 5%;
+}
+
+.character-detail .band img {
+  width: 100px;
+}
+
+.character-detail .name,
+.character-detail .cv {
+  text-align: right;
+}
+
+.character-detail .description .text {
+  margin-bottom: 10px;
+}
+
+.character-detail .description .value {
+  text-align: left;
+}
+
+/* About */
+.about {
+  padding: 0 5% 4rem;
+}
+
+.about .title {
+  padding: 1rem;
+  text-align: center;
+}
+
+.about .author {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.about .author img {
+  width: 200px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about .social {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.about .social svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--main-clr);
+}
+
+footer a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f3f3f3;
+}
+
+footer a:hover {
+  color: #0ff;
+}
+
+footer svg {
+  width: 20px;
+  height: 20px;
+}
+
+footer .link-text {
+  font-size: 12px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #bbb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a0a0a0;
 }

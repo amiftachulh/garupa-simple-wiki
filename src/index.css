@@ -1,13 +1,59 @@
-body {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: "Titillium Web", sans-serif;
+  background-color: #f0f0f0;
+}
+
+::selection {
+  background-color: #9092ff;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.detail > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.detail > div:not(:last-child) {
+  border-bottom: 1px solid grey;
+}
+
+.detail .text {
+  font-weight: bold;
+}
+
+.detail .value {
+  text-align: right;
+}
+
+.detail .attribute .value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail .icon img {
+  width: 100px;
+}
+
+.detail .description {
+  display: block;
 }
